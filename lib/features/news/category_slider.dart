@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:catire_mobile/core/utils/helper.dart';
+
 class CategorySlider extends StatelessWidget {
   final String? selectedCategory;
   final Function(String?) onCategoryChanged;
@@ -47,7 +49,7 @@ class CategorySlider extends StatelessWidget {
 
               // Build each category
               return _buildCategoryChip(
-                label: _capitalize(category),
+                label: capitalize(category),
                 isSelected: isSelected,
                 onTap: () => onCategoryChanged(category),
               );
@@ -83,10 +85,5 @@ class CategorySlider extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _capitalize(String text) {
-    if (text.isEmpty) return text;
-    return text[0].toUpperCase() + text.substring(1);
   }
 }
