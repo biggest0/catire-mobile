@@ -17,7 +17,7 @@ Future<ArticleDetail?> getArticleDetail(String articleId) async {
   }
 }
 
-Future<List<ArticleInfoResponse>?> getArticles({
+Future<List<ArticleInfo>?> getArticles({
   int page = 1,
   int limit = 10,
   String? category,
@@ -40,6 +40,7 @@ Future<List<ArticleInfoResponse>?> getArticles({
           (jsonArticle) =>
               ArticleInfoResponse.fromJson(jsonArticle as Map<String, dynamic>),
         )
+        .map(articleInfoTransform)
         .toList();
   } catch (error) {
     log("Failed to get article info:$error");

@@ -55,6 +55,7 @@ class _MainScaffoldState extends State<MainScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white,
       appBar: CustomAppBar(onTap: _onIconTap),
 
       body: _pages[_selectedIndex],
