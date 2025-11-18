@@ -20,6 +20,16 @@ class CustomBottomNavBar extends StatelessWidget
         label: 'Home',
       ),
       BottomNavigationBarItem(
+        icon: Icon(Icons.chrome_reader_mode_outlined),
+        activeIcon: Icon(Icons.chrome_reader_mode),
+        label: 'News',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.image_outlined),
+        activeIcon: Icon(Icons.image),
+        label: 'Cats',
+      ),
+      BottomNavigationBarItem(
         icon: Icon(Icons.person_outline),
         activeIcon: Icon(Icons.person),
         label: 'Account',
@@ -33,7 +43,7 @@ class CustomBottomNavBar extends StatelessWidget
 
     final int index = currentIndex >= 0 && currentIndex < navItems.length
         ? currentIndex
-        : 2; // All other pages default to the last item.
+        : 4; // All other pages default to the last item.
 
     return BottomNavigationBar(
       currentIndex: index,
@@ -43,6 +53,8 @@ class CustomBottomNavBar extends StatelessWidget
       unselectedItemColor: Colors.grey,
       showSelectedLabels: true,
       showUnselectedLabels: true,
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
       items: navItems,
     );
   }

@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.search),
-          onPressed: () => onTap(3), // 3 is index of the search page
+          onPressed: () => onTap(5), // 5 is index of the search page
         ),
       ],
     );
