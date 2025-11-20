@@ -36,15 +36,35 @@ class MainScaffold extends StatefulWidget {
 class _MainScaffoldState extends State<MainScaffold> {
   int _selectedIndex = 0;
 
-  // Pages
-  final List<Widget> _pages = [
-    const HomePage(),
-    const ArticlesPage(),
-    const CatsPage(),
-    const AccountPage(),
-    const MenuPage(),
-    const SearchPage(),
-  ];
+  late List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const HomePage(),
+      const ArticlesPage(),
+      const CatsPage(),
+      const AccountPage(),
+      MenuPage(onNavigate: _navigateToSubPage),
+      const SearchPage(),
+    ];
+  }
+
+  void _navigateToSubPage(String title, Widget page) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => Scaffold(
+          appBar: AppBar(centerTitle: true, title: Text(title)),
+          body: Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: page,
+          ),
+        ),
+      ),
+    );
+  }
 
   void _onIconTap(int index) {
     setState(() {
