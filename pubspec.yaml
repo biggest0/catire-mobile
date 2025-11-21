@@ -65,7 +65,18 @@ flutter:
 
 
   assets:
-    - assets/images/cat_albert.jpg
+    - assets/images/profile_pictures/cat_albert.jpg
+    - assets/images/cat_pictures/cat_image_1.png
+    - assets/images/cat_pictures/cat_image_2.png
+    - assets/images/cat_pictures/cat_image_3.png
+    - assets/images/cat_pictures/cat_image_4.png
+    - assets/images/cat_pictures/cat_image_5.png
+    - assets/images/cat_pictures/cat_image_6.png
+    - assets/images/cat_pictures/cat_image_7.png
+    - assets/images/cat_pictures/cat_image_8.png
+    - assets/images/cat_pictures/cat_image_9.png
+    - assets/images/cat_pictures/cat_image_10.png
+    - assets/images/cat_pictures/cat_image_11.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
