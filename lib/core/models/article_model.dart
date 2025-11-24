@@ -1,7 +1,7 @@
 class ArticleInfoResponse {
   final String id;
   final String title;
-  final String? summary;
+  final String summary;
   final String datePublished;
   final String mainCategory;
   final int viewed;
@@ -9,7 +9,7 @@ class ArticleInfoResponse {
   ArticleInfoResponse({
     required this.id,
     required this.title,
-    this.summary,
+    required this.summary,
     required this.datePublished,
     required this.mainCategory,
     required this.viewed,
@@ -19,7 +19,7 @@ class ArticleInfoResponse {
     return ArticleInfoResponse(
       id: json['_id'] as String,
       title: json['title'] as String,
-      summary: json['summary'] as String?,
+      summary: json['summary'] as String,
       datePublished: json['date_published'] as String,
       mainCategory: json['main_category'] as String,
       viewed: json['viewed'] as int,
@@ -30,17 +30,17 @@ class ArticleInfoResponse {
 class ArticleInfo {
   final String id;
   final String title;
-  final String? summary;
-  final String? datePublished; // Formatted date string
-  final String? mainCategory;
+  final String summary;
+  final String datePublished; // Formatted date string
+  final String mainCategory;
   final int viewed;
 
   ArticleInfo({
     required this.id,
     required this.title,
-    this.summary,
-    this.datePublished,
-    this.mainCategory,
+    required this.summary,
+    required this.datePublished,
+    required this.mainCategory,
     required this.viewed,
   });
 }
