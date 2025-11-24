@@ -26,13 +26,7 @@ class ImageCard extends StatelessWidget {
         decoration: BoxDecoration(
           // Default flutter background color
           color: Theme.of(context).canvasColor,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          border: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
         ),
         // Clips image to fit
         child: ClipRRect(
