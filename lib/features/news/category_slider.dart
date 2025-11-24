@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:catire_mobile/core/utils/helper.dart';
 
+
+/// Slider widget that allows the user to select a category.
 class CategorySlider extends StatelessWidget {
   final String? selectedCategory;
   final Function(String?) onCategoryChanged;

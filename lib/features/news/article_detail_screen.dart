@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
 
+/// Widget screen that displays the full details of an article.
 class ArticleDetailScreen extends StatefulWidget {
   final String articleId;
 
@@ -22,6 +23,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
     _fetchArticle();
   }
 
+  /// Fetch article details from API
   Future<void> _fetchArticle() async {
     final result = await getArticleDetail(widget.articleId);
     setState(() {
@@ -61,7 +63,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            /// Title
+            // Title
             Text(
               article.title,
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -69,7 +71,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
 
             const SizedBox(height: 6),
 
-            /// Date
+            // Date
             Text(
               article.datePublished,
               style: TextStyle(fontSize: 14, color: Colors.grey[600]),
@@ -77,7 +79,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
 
             const SizedBox(height: 16),
 
-            /// Paragraphs
+            // Paragraphs
             ...article.paragraphs.map(
               (paragraph) => Padding(
                 padding: const EdgeInsets.only(bottom: 25.0),
@@ -90,7 +92,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
 
             const SizedBox(height: 16),
 
-            /// Sub-categories
+            // Sub-categories
             Wrap(
               spacing: 16,
               runSpacing: 6,

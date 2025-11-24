@@ -34,11 +34,13 @@ class _ArticlesPageState extends State<ArticlesPage> {
           selectedCategory: _selectedCategory,
           onCategoryChanged: onCategoryChanged,
         ),
-
         Expanded(
-          child: ArticleListSection(
-            category: _selectedCategory,
-            sortBy: 'newest',
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: ArticleListSection(
+              category: _selectedCategory,
+              sortBy: 'newest',
+            ),
           ),
         ),
       ],
