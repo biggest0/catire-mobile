@@ -24,7 +24,8 @@ class ImageCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          // Default flutter background color
+          color: Theme.of(context).canvasColor,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade300,
