@@ -5,6 +5,7 @@ import '../../core/services/article_service.dart';
 import '../../core/services/database_service.dart';
 import 'article_card.dart';
 import 'article_detail_screen.dart';
+import 'package:catire_mobile/features/news/empty_view.dart';
 
 /// A section widget that displays a paginated, inf scrollable list of articles.
 class ArticleListSection extends StatefulWidget {
@@ -161,7 +162,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
 
     // Empty state
     if (_articles.isEmpty) {
-      return const _EmptyView();
+      return const EmptyView();
     }
 
     // Article list
@@ -239,28 +240,6 @@ class _ErrorView extends StatelessWidget {
           Text('Error: $error'),
           const SizedBox(height: 16),
           ElevatedButton(onPressed: onRetry, child: const Text('Retry')),
-        ],
-      ),
-    );
-  }
-}
-
-/// Displays a message when no articles are found
-class _EmptyView extends StatelessWidget {
-  const _EmptyView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.article_outlined, size: 64, color: Colors.grey[400]),
-          const SizedBox(height: 16),
-          Text(
-            'No articles found',
-            style: TextStyle(fontSize: 18, color: Colors.grey[600]),
-          ),
         ],
       ),
     );
