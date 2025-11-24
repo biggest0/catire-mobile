@@ -77,6 +77,8 @@ flutter:
     - assets/images/cat_pictures/cat_image_9.png
     - assets/images/cat_pictures/cat_image_10.png
     - assets/images/cat_pictures/cat_image_11.png
+    - assets/images/cat_pictures/home_image.jpg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
