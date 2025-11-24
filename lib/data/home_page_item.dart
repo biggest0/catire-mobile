@@ -4,7 +4,7 @@ import '../core/models/image_model.dart';
 // Default homepage image and caption
 final ImageItem homeImage = ImageItem(
   imagePath: 'assets/images/cat_pictures/home_image.jpg',
-  caption: '"Satire news: veggies disguised as cake',
+  caption: 'Satire news: veggies disguised as cake',
   details:
       '"Reading satire news is like getting your veggies in cake form—tasty, fun, and surprisingly informative." — Albert Mewstein',
 );
