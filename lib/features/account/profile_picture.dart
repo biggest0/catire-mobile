@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+/// Account profile picture
 class ProfilePicture extends StatelessWidget {
   final String imagePath;
 
