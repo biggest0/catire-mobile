@@ -45,7 +45,6 @@ class _AccountTextField extends StatelessWidget {
   final VoidCallback onSave;
 
   const _AccountTextField({
-    super.key,
     required this.controller,
     required this.labelText,
     required this.onSave,
