@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:catire_mobile/core/utils/helper.dart';
+import 'package:catire_mobile/core/utils/text_formatter.dart';
 import '../../core/models/article_model.dart';
 
 /// A tappable card widget that displays an article's information.

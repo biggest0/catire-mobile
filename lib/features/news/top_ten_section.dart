@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
-import '../../core/services/database_service.dart';
-import '../../core/utils/helper.dart';
-import 'article_detail_screen.dart';
+import '../../core/utils/tap_helper.dart';
+import '../../core/utils/text_formatter.dart';
 import 'empty_view.dart';
 import 'error_view.dart';
 import 'loading_view.dart';
@@ -107,7 +106,7 @@ class _TopTenArticleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => _handleTap(context),
+      onTap: () => handleTap(context, article),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         child: Row(
@@ -165,21 +164,6 @@ class _TopTenArticleItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// Save article to database and navigate to article detail screen when tapped
-  Future<void> _handleTap(BuildContext context) async {
-    final userDb = DatabaseHelper();
-    await userDb.saveReadArticle(article);
-
-    if (context.mounted) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ArticleDetailScreen(articleId: article.id),
-        ),
-      );
-    }
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
 import '../../core/services/database_service.dart';
+import '../../core/utils/tap_helper.dart';
 import 'article_card.dart';
 import 'article_detail_screen.dart';
 import 'package:catire_mobile/features/news/empty_view.dart';
@@ -191,22 +192,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
           final article = _articles[index];
           return ArticleCard(
             article: article,
-            onTap: () async {
-              final userDb = DatabaseHelper();
-              await userDb.saveReadArticle(article);
-
-              // Navigate to article detail
-              print('Navigate to article: ${article.id}');
-              if (mounted) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        ArticleDetailScreen(articleId: article.id),
-                  ),
-                );
-              }
-            },
+            onTap:() => handleTap(context, article)
           );
         },
       ),
