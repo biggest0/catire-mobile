@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 
 import "package:catire_mobile/core/constants/api_routes.dart";
 
-import '../models/article_model.dart';
 
 Future<Map<String, dynamic>> fetchArticleDetail(String articleId) async {
   final response = await http.post(
@@ -61,4 +60,14 @@ Future<List<dynamic>> fetchTopTenArticles() async {
         'Failed to fetch top ten articles. Error: ${response.statusCode} - ${response.body}';
     throw Exception(errorMessage);
   }
+}
+
+
+void incrementArticleViewed(String articleId) {
+  http.put(
+    Uri.parse("${ApiRoutes.API_INCREMENT_VIEWED}/$articleId"),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  );
 }
