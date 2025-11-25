@@ -25,7 +25,7 @@ class HorizontalArticleCarousel extends StatelessWidget {
 
     return Container(
       height: height,
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: 0),
       decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
       ),

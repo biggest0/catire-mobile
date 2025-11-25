@@ -147,7 +147,7 @@ class ArticleFooter extends StatelessWidget {
         // Right: article views
         Row(
           children: [
-            Icon(Icons.visibility, size: 14, color: Colors.grey[600]),
+            Icon(Icons.visibility_outlined, size: 14, color: Colors.grey[600]),
             const SizedBox(width: 4),
             Text(
               views.toString(),
