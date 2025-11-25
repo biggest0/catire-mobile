@@ -32,7 +32,7 @@ A Flutter-based mobile news application with a cat-themed twist! Browse articles
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 ```
 lib/
