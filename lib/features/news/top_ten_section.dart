@@ -5,6 +5,8 @@ import '../../core/services/article_service.dart';
 import '../../core/services/database_service.dart';
 import 'article_detail_screen.dart';
 import 'empty_view.dart';
+import 'error_view.dart';
+import 'loading_view.dart';
 
 class TopTenArticlesWidget extends StatefulWidget {
   const TopTenArticlesWidget({super.key});
@@ -16,7 +18,7 @@ class TopTenArticlesWidget extends StatefulWidget {
 class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
   List<ArticleInfo> _articles = [];
   bool _isLoading = false;
-  String? _error;
+  String? errorMessage;
 
   @override
   void initState() {
@@ -27,7 +29,7 @@ class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
   Future<void> _loadArticles() async {
     setState(() {
       _isLoading = true;
-      _error = null;
+      errorMessage = null;
     });
 
     try {
@@ -37,9 +39,8 @@ class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
           if (articles != null) {
             _articles = articles;
             _isLoading = false;
-          }
-          else {
-            _error = "Failed to load articles";
+          } else {
+            errorMessage = "Failed to load articles";
             _isLoading = false;
           }
         });
@@ -47,7 +48,7 @@ class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
     } catch (error) {
       if (mounted) {
         setState(() {
-          _error = error.toString();
+          errorMessage = error.toString();
           _isLoading = false;
         });
       }
@@ -56,16 +57,13 @@ class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // if (_isLoading) {
-    //   return const _LoadingView();
-    // }
-    //
-    // if (_error != null) {
-    //   return _ErrorView(
-    //     error: _error!,
-    //     onRetry: _loadArticles,
-    //   );
-    // }
+    if (_isLoading) {
+      return const LoadingView();
+    }
+
+    if (errorMessage != null) {
+      return ErrorView(error: errorMessage!, onRetry: _loadArticles);
+    }
 
     if (_articles.isEmpty) {
       return const EmptyView();
@@ -89,10 +87,7 @@ class _TopTenListView extends StatelessWidget {
       separatorBuilder: (context, index) => const Divider(height: 1),
       itemBuilder: (context, index) {
         final article = articles[index];
-        return _TopTenArticleItem(
-          article: article,
-          rank: index + 1,
-        );
+        return _TopTenArticleItem(article: article, rank: index + 1);
       },
     );
   }
@@ -102,10 +97,7 @@ class _TopTenArticleItem extends StatelessWidget {
   final ArticleInfo article;
   final int rank;
 
-  const _TopTenArticleItem({
-    required this.article,
-    required this.rank,
-  });
+  const _TopTenArticleItem({required this.article, required this.rank});
 
   @override
   Widget build(BuildContext context) {
@@ -152,10 +144,7 @@ class _TopTenArticleItem extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         article.viewed.toString(),
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[600],
-                        ),
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                       ),
                     ],
                   ),
@@ -194,10 +183,7 @@ class _RankBadge extends StatelessWidget {
     return Container(
       width: 32,
       height: 32,
-      decoration: BoxDecoration(
-        color: _getRankColor(),
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(color: _getRankColor(), shape: BoxShape.circle),
       child: Center(
         child: Text(
           rank.toString(),
