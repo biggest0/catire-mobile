@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:catire_mobile/core/utils/text_formatter.dart';
 import '../../core/models/article_model.dart';
+import '../../core/utils/color_helper.dart';
 
 /// A tappable card widget that displays an article's information.
 ///
@@ -135,12 +136,12 @@ class ArticleFooter extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
-            color: Colors.red[50],
+            color: getBoxColor(category),
             borderRadius: BorderRadius.circular(4),
           ),
           child: Text(
             capitalize(category),
-            style: const TextStyle(fontSize: 12, color: Colors.red),
+            style: TextStyle(fontSize: 12, color: getTextColor(category)),
           ),
         ),
 

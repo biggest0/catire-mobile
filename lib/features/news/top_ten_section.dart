@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
+import '../../core/utils/color_helper.dart';
 import '../../core/utils/tap_helper.dart';
 import '../../core/utils/text_formatter.dart';
 import 'empty_view.dart';
@@ -178,7 +179,10 @@ class _RankBadge extends StatelessWidget {
     return Container(
       width: 32,
       height: 32,
-      decoration: BoxDecoration(color: _getRankColor(), shape: BoxShape.circle),
+      decoration: BoxDecoration(
+        color: getRankColor(rank),
+        shape: BoxShape.circle,
+      ),
       child: Center(
         child: Text(
           rank.toString(),
@@ -190,13 +194,5 @@ class _RankBadge extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// Get color based on rank
-  Color _getRankColor() {
-    if (rank == 1) return Colors.red[700]!;
-    if (rank == 2) return Colors.orange[500]!;
-    if (rank == 3) return Colors.amber[400]!;
-    return Colors.grey[400]!;
   }
 }
