@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:catire_mobile/data/home_page_item.dart';
 import 'package:catire_mobile/features/image/image_card.dart';
 import 'package:catire_mobile/features/news/horizontal_article_carousel.dart';
 import 'package:catire_mobile/features/news/top_ten_section.dart';
 import 'package:catire_mobile/features/shared/section_header.dart';
-import 'package:flutter/material.dart';
 
+/// App home page
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -12,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
