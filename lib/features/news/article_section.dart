@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
-import '../../core/services/database_service.dart';
 import '../../core/utils/tap_helper.dart';
 import 'article_card.dart';
-import 'article_detail_screen.dart';
 import 'package:catire_mobile/features/news/empty_view.dart';
 import 'error_view.dart';
 import 'loading_view.dart';
