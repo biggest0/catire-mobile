@@ -6,8 +6,10 @@ import 'image_full_screen.dart';
 /// Widget that displays a single image card with a caption.
 class ImageCard extends StatelessWidget {
   final ImageItem imageItem;
+  final bool hasBorder;
+  final double space;
 
-  const ImageCard({super.key, required this.imageItem});
+  const ImageCard({super.key, required this.imageItem, this.hasBorder = true, this.space = 8});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,14 @@ class ImageCard extends StatelessWidget {
         );
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+        margin: EdgeInsets.symmetric(horizontal: space, vertical: 12),
         decoration: BoxDecoration(
           // Default flutter background color
           color: Theme.of(context).canvasColor,
-          border: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
+          // Based on hasBorder flag display border or not
+          border: hasBorder
+              ? const Border(bottom: BorderSide(color: Colors.grey, width: 1))
+              : null,
         ),
         // Clips image to fit
         child: ClipRRect(
