@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
 import '../../core/services/database_service.dart';
+import '../../core/utils/helper.dart';
 import 'article_detail_screen.dart';
 import 'empty_view.dart';
 import 'error_view.dart';
 import 'loading_view.dart';
 
-class TopTenArticlesWidget extends StatefulWidget {
-  const TopTenArticlesWidget({super.key});
+/// Section of top ten articles
+class TopTenArticlesSection extends StatefulWidget {
+  const TopTenArticlesSection({super.key});
 
   @override
-  State<TopTenArticlesWidget> createState() => _TopTenArticlesWidgetState();
+  State<TopTenArticlesSection> createState() => _TopTenArticlesSectionState();
 }
 
-class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
+class _TopTenArticlesSectionState extends State<TopTenArticlesSection> {
   List<ArticleInfo> _articles = [];
   bool _isLoading = false;
   String? errorMessage;
@@ -73,6 +75,7 @@ class _TopTenArticlesWidgetState extends State<TopTenArticlesWidget> {
   }
 }
 
+/// List view of top ten articles
 class _TopTenListView extends StatelessWidget {
   final List<ArticleInfo> articles;
 
@@ -81,6 +84,7 @@ class _TopTenListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: const EdgeInsets.only(top: 4),
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: articles.length,
@@ -93,6 +97,7 @@ class _TopTenListView extends StatelessWidget {
   }
 }
 
+/// Individual article item for top ten articles
 class _TopTenArticleItem extends StatelessWidget {
   final ArticleInfo article;
   final int rank;
@@ -104,16 +109,18 @@ class _TopTenArticleItem extends StatelessWidget {
     return InkWell(
       onTap: () => _handleTap(context),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _RankBadge(rank: rank),
             const SizedBox(width: 12),
+
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Article title
                   Text(
                     article.title,
                     style: const TextStyle(
@@ -125,10 +132,12 @@ class _TopTenArticleItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
+
+                  // Article category, viewed
                   Row(
                     children: [
                       Text(
-                        article.mainCategory.toUpperCase(),
+                        capitalize(article.mainCategory),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey[600],
@@ -158,6 +167,7 @@ class _TopTenArticleItem extends StatelessWidget {
     );
   }
 
+  /// Save article to database and navigate to article detail screen when tapped
   Future<void> _handleTap(BuildContext context) async {
     final userDb = DatabaseHelper();
     await userDb.saveReadArticle(article);
@@ -173,6 +183,7 @@ class _TopTenArticleItem extends StatelessWidget {
   }
 }
 
+/// Rank badge for each article
 class _RankBadge extends StatelessWidget {
   final int rank;
 
@@ -197,10 +208,11 @@ class _RankBadge extends StatelessWidget {
     );
   }
 
+  /// Get color based on rank
   Color _getRankColor() {
-    if (rank == 1) return Colors.amber[700]!; // Gold
-    if (rank == 2) return Colors.grey[600]!; // Silver
-    if (rank == 3) return Colors.brown[400]!; // Bronze
-    return Colors.blue[600]!; // Default
+    if (rank == 1) return Colors.red[700]!;
+    if (rank == 2) return Colors.orange[500]!;
+    if (rank == 3) return Colors.amber[400]!;
+    return Colors.grey[400]!;
   }
 }
