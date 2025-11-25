@@ -32,9 +32,9 @@ class CatsPage extends StatelessWidget {
                 ],
               ),
             )
-          : ListView.builder(
+          : ListView.separated(
               itemCount: images.length,
-              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              separatorBuilder: (context, index) => const SizedBox(height: 8),
               itemBuilder: (context, index) {
                 return ImageCard(imageItem: images[index]);
               },
