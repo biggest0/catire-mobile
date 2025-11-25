@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:catire_mobile/core/utils/helper.dart';
+import 'package:catire_mobile/core/utils/text_formatter.dart';
 
 
 /// Slider widget that allows the user to select a category.
