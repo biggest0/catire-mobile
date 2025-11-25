@@ -93,23 +93,6 @@ lib/
 
 ---
 
-## Getting Started
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd catire-mobile
-   ```
-
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
----
-
 ## Database Schema
 
 The app uses SQLite for local data persistence:
