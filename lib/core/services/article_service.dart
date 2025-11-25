@@ -47,3 +47,19 @@ Future<List<ArticleInfo>?> getArticles({
     return null;
   }
 }
+
+Future<List<ArticleInfo>?> getTopTenArticles() async {
+  try {
+    final data = await fetchTopTenArticles();
+    return data
+        .map(
+          (jsonArticle) =>
+              ArticleInfoResponse.fromJson(jsonArticle as Map<String, dynamic>),
+        )
+        .map(articleInfoTransform)
+        .toList();
+  } catch (error) {
+    log("Failed to get top ten articles:$error");
+    return null;
+  }
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:catire_mobile/core/utils/helper.dart';
+import 'package:catire_mobile/core/utils/text_formatter.dart';
 import '../../core/models/article_model.dart';
 
 /// A tappable card widget that displays an article's information.
@@ -10,17 +10,28 @@ import '../../core/models/article_model.dart';
 class ArticleCard extends StatelessWidget {
   final ArticleInfo article;
   final VoidCallback? onTap;
+  final bool hasBorder;
+  final double padding;
 
-  const ArticleCard({super.key, required this.article, this.onTap});
+  const ArticleCard({
+    super.key,
+    required this.article,
+    this.onTap,
+    this.hasBorder = true,
+    this.padding = 16,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
+        padding: EdgeInsets.all(padding),
+        decoration: BoxDecoration(
+          // Based on hasBorder flag display border or not
+          border: hasBorder
+              ? const Border(bottom: BorderSide(color: Colors.grey, width: 1))
+              : null,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +147,7 @@ class ArticleFooter extends StatelessWidget {
         // Right: article views
         Row(
           children: [
-            Icon(Icons.visibility, size: 14, color: Colors.grey[600]),
+            Icon(Icons.visibility_outlined, size: 14, color: Colors.grey[600]),
             const SizedBox(width: 4),
             Text(
               views.toString(),

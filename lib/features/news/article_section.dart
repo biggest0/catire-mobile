@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import '../../core/services/article_service.dart';
-import '../../core/services/database_service.dart';
+import '../../core/utils/tap_helper.dart';
 import 'article_card.dart';
-import 'article_detail_screen.dart';
 import 'package:catire_mobile/features/news/empty_view.dart';
+import 'error_view.dart';
+import 'loading_view.dart';
 
 /// A section widget that displays a paginated, inf scrollable list of articles.
 class ArticleListSection extends StatefulWidget {
@@ -31,7 +32,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
   bool _isLoading = false;
   bool _hasMore = true;
   int _currentPage = 1;
-  String? _error;
+  String? errorMessage;
   final int _itemsPerPage = 10;
 
   final ScrollController _scrollController =
@@ -70,7 +71,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
 
     setState(() {
       _isLoading = true;
-      _error = null;
+      errorMessage = null;
     });
 
     try {
@@ -122,7 +123,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
       if (!mounted) return;
 
       setState(() {
-        _error = error.toString();
+        errorMessage = error.toString();
         _isLoading = false;
       });
       print('[Error] loading articles: $error');
@@ -143,7 +144,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
       _articles = [];
       _currentPage = 1;
       _hasMore = true;
-      _error = null;
+      errorMessage = null;
     });
     await _loadArticles();
   }
@@ -152,12 +153,12 @@ class _ArticleListSectionState extends State<ArticleListSection> {
   Widget build(BuildContext context) {
     // Initial loading state
     if (_isLoading && _articles.isEmpty) {
-      return const _LoadingView();
+      return const LoadingView();
     }
 
     // Error state
-    if (_error != null && _articles.isEmpty) {
-      return _ErrorView(error: _error!, onRetry: _refresh);
+    if (errorMessage != null && _articles.isEmpty) {
+      return ErrorView(error: errorMessage!, onRetry: _refresh);
     }
 
     // Empty state
@@ -189,58 +190,9 @@ class _ArticleListSectionState extends State<ArticleListSection> {
           final article = _articles[index];
           return ArticleCard(
             article: article,
-            onTap: () async {
-              final userDb = DatabaseHelper();
-              await userDb.saveReadArticle(article);
-
-              // Navigate to article detail
-              print('Navigate to article: ${article.id}');
-              if (mounted) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        ArticleDetailScreen(articleId: article.id),
-                  ),
-                );
-              }
-            },
+            onTap:() => handleTap(context, article)
           );
         },
-      ),
-    );
-  }
-}
-
-/// Loading spinner widget for initial loading state
-class _LoadingView extends StatelessWidget {
-  const _LoadingView();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
-  }
-}
-
-/// Display error message and retry button
-class _ErrorView extends StatelessWidget {
-  final String error;
-  final VoidCallback onRetry;
-
-  const _ErrorView({required this.error, required this.onRetry});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.error_outline, size: 48, color: Colors.red[300]),
-          const SizedBox(height: 16),
-          Text('Error: $error'),
-          const SizedBox(height: 16),
-          ElevatedButton(onPressed: onRetry, child: const Text('Retry')),
-        ],
       ),
     );
   }
