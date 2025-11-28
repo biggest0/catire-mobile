@@ -49,12 +49,6 @@ final List<ImageItem> catImages = [
         'Studies using sound playback showed cats do distinguish their names… they just don’t always care enough to respond.',
   ),
   ImageItem(
-    imagePath: 'assets/images/cat_pictures/cat_image_9.png',
-    caption: 'Cats might be able to survive falls from high places',
-    details:
-        'They have a “righting reflex” and can spread their bodies like a parachute. Cats falling from higher heights often fare better than medium-height falls because they reach terminal velocity and relax their bodies.',
-  ),
-  ImageItem(
     imagePath: 'assets/images/cat_pictures/cat_image_10.png',
     caption: 'Cats "head-butt" you because they like you',
     details:
