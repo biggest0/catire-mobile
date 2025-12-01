@@ -1,5 +1,6 @@
 import '../core/models/image_model.dart';
 
+// Hardcoded cat images to display
 final List<ImageItem> catImages = [
   ImageItem(
     imagePath: 'assets/images/cat_pictures/cat_image_1.png',
