@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Section title (text input need to be in correct capitalized format).
 class SectionTitle extends StatelessWidget {
   final String title;
 
