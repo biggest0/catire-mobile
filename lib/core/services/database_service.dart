@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../models/article_model.dart';
 
-/// Helper class for interacting with the SQLite database
+/// Helper class for interacting with the SQLite database.
 class DatabaseHelper {
   //========================
   // Singleton db instance
@@ -15,7 +15,7 @@ class DatabaseHelper {
 
   DatabaseHelper._internal();
 
-  /// Returns the singleton database instance
+  /// Returns the singleton database instance.
   Future<Database> get database async {
     if (_database != null) {
       return _database!;
@@ -24,7 +24,7 @@ class DatabaseHelper {
     return _database!;
   }
 
-  /// Initializes the SQLite database by creating tables on first run
+  /// Initializes the SQLite database by creating tables on first run.
   Future<Database> _initDatabase() async {
     String path = join(await getDatabasesPath(), 'user.db');
 
@@ -72,14 +72,14 @@ class DatabaseHelper {
   //=================
   // User db methods
   //=================
-  /// Get user info from the database
+  /// Get user info from the database.
   Future<Map<String, dynamic>?> getUser() async {
     final db = await database;
     final result = await db.query('users', where: 'id = ?', whereArgs: [1]);
     return result.isNotEmpty ? result.first : null;
   }
 
-  /// Updates user info (name, bio) in the database
+  /// Updates user info (name, bio) in the database.
   Future<void> updateUser(String name, String bio) async {
     final db = await database;
     await db.update(
@@ -93,7 +93,7 @@ class DatabaseHelper {
   //===========================
   // Read Articles db methods
   //===========================
-  /// Saves article to database, replace if already exists
+  /// Saves article to database, replace if already exists.
   Future<void> saveReadArticle(ArticleInfo article) async {
     final db = await database;
     await db.insert(
@@ -111,7 +111,7 @@ class DatabaseHelper {
     );
   }
 
-  /// Get list of read articles, sorted by most recent first
+  /// Get list of read articles, sorted by most recent first.
   Future<List<ArticleInfo>> getReadArticles(int? limit) async {
     final db = await database;
     final articles = await db.query(
@@ -132,13 +132,13 @@ class DatabaseHelper {
     }).toList();
   }
 
-  /// Clear all read articles from the database
+  /// Clear all read articles from the database.
   Future<void> clearReadArticles() async {
     final db = await database;
     await db.delete('read_articles');
   }
 
-  /// Get count of read articles
+  /// Get count of read articles.
   Future<int> getReadArticlesCount() async {
     final db = await database;
     final result = await db.rawQuery(
