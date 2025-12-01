@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'API App',
+      title: 'Catire Time',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
       home: const MainScaffold(),
     );
@@ -33,6 +33,7 @@ class MainScaffold extends StatefulWidget {
   State<MainScaffold> createState() => _MainScaffoldState();
 }
 
+/// Main scaffold for the app.
 class _MainScaffoldState extends State<MainScaffold> {
   int _selectedIndex = 0;
 
@@ -51,6 +52,7 @@ class _MainScaffoldState extends State<MainScaffold> {
     ];
   }
 
+  /// Callback to navigate to sub pages shown in MenuPage.
   void _navigateToSubPage(String title, Widget page) {
     Navigator.push(
       context,
@@ -66,6 +68,7 @@ class _MainScaffoldState extends State<MainScaffold> {
     );
   }
 
+  /// Callback to update selected index so bottom nav bar focuses.
   void _onIconTap(int index) {
     setState(() {
       _selectedIndex = index;
@@ -75,7 +78,6 @@ class _MainScaffoldState extends State<MainScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
       appBar: CustomAppBar(onTap: _onIconTap),
 
       body: _pages[_selectedIndex],
