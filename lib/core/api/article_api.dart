@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 import "package:catire_mobile/core/constants/api_routes.dart";
 
-
+/// Fetch article detail from API
 Future<Map<String, dynamic>> fetchArticleDetail(String articleId) async {
   final response = await http.post(
     Uri.parse(ApiRoutes.API_ARTICLE_DETAIL),
@@ -24,6 +24,7 @@ Future<Map<String, dynamic>> fetchArticleDetail(String articleId) async {
   }
 }
 
+/// Fetch article info from API
 Future<List<dynamic>> fetchArticles(Map<String, String> queryParams) async {
   final response = await http.get(
     Uri.parse(ApiRoutes.API_ARTICLE_INFO).replace(queryParameters: queryParams),
@@ -43,6 +44,7 @@ Future<List<dynamic>> fetchArticles(Map<String, String> queryParams) async {
   }
 }
 
+/// Fetch top ten article info from API
 Future<List<dynamic>> fetchTopTenArticles() async {
   final response = await http.get(
     Uri.parse(ApiRoutes.API_TOP_TEN),
@@ -62,12 +64,10 @@ Future<List<dynamic>> fetchTopTenArticles() async {
   }
 }
 
-
+/// Increment specific article view count
 void incrementArticleViewed(String articleId) {
   http.put(
     Uri.parse("${ApiRoutes.API_INCREMENT_VIEWED}/$articleId"),
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
+    headers: {'Content-Type': 'application/json; charset=UTF-8'},
   );
 }
