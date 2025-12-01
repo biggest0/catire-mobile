@@ -4,6 +4,7 @@ import 'package:catire_mobile/core/models/article_model.dart';
 import '../api/article_api.dart';
 import '../utils/data_formatter.dart';
 
+/// Send and handle response from article detail API call
 Future<ArticleDetail?> getArticleDetail(String articleId) async {
   try {
     final data = await fetchArticleDetail(articleId);
@@ -17,6 +18,7 @@ Future<ArticleDetail?> getArticleDetail(String articleId) async {
   }
 }
 
+/// Send and handle response from article info API call
 Future<List<ArticleInfo>?> getArticles({
   int page = 1,
   int limit = 10,
@@ -48,6 +50,7 @@ Future<List<ArticleInfo>?> getArticles({
   }
 }
 
+/// Send and handle response from top ten articles API call
 Future<List<ArticleInfo>?> getTopTenArticles() async {
   try {
     final data = await fetchTopTenArticles();

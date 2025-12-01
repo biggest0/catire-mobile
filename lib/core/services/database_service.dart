@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../models/article_model.dart';
 
+/// Helper class for interacting with the SQLite database
 class DatabaseHelper {
   //========================
   // Singleton db instance

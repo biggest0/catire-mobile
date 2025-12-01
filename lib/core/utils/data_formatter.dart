@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import '../models/article_model.dart';
 
+/// Helper function for date formating of article info
 ArticleInfo articleInfoTransform(ArticleInfoResponse response) {
   final parsedDate = DateTime.parse(response.datePublished);
   final formattedDate = DateFormat('MM/dd/yyyy').format(parsedDate);
@@ -15,6 +16,7 @@ ArticleInfo articleInfoTransform(ArticleInfoResponse response) {
   );
 }
 
+/// Helper function for date formatting of article detail
 ArticleDetail articleDetailTransform(ArticleDetailResponse response) {
   final parsedDate = DateTime.parse(response.datePublished);
   final formattedDate = DateFormat('MM/dd/yyyy').format(parsedDate);
