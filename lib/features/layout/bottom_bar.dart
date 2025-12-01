@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Bottom navigation bar.
 class CustomBottomNavBar extends StatelessWidget
     implements PreferredSizeWidget {
   final int currentIndex;
@@ -14,26 +15,31 @@ class CustomBottomNavBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     const navItems = [
+      // Home
       BottomNavigationBarItem(
         icon: Icon(Icons.home_outlined),
         activeIcon: Icon(Icons.home),
         label: 'Home',
       ),
+      // News
       BottomNavigationBarItem(
         icon: Icon(Icons.chrome_reader_mode_outlined),
         activeIcon: Icon(Icons.chrome_reader_mode),
         label: 'News',
       ),
+      // Cats
       BottomNavigationBarItem(
         icon: Icon(Icons.image_outlined),
         activeIcon: Icon(Icons.image),
         label: 'Cats',
       ),
+      // Account
       BottomNavigationBarItem(
         icon: Icon(Icons.person_outline),
         activeIcon: Icon(Icons.person),
         label: 'Account',
       ),
+      // More
       BottomNavigationBarItem(
         icon: Icon(Icons.menu),
         activeIcon: Icon(Icons.menu),
@@ -41,9 +47,10 @@ class CustomBottomNavBar extends StatelessWidget
       ),
     ];
 
+    // Make sure the current index is within the valid range
     final int index = currentIndex >= 0 && currentIndex < navItems.length
         ? currentIndex
-        : 4; // All other pages default to the last item.
+        : 4; // All other pages default to the last item
 
     return BottomNavigationBar(
       currentIndex: index,
