@@ -6,7 +6,7 @@ import 'package:catire_mobile/features/news/horizontal_article_carousel.dart';
 import 'package:catire_mobile/features/news/top_ten_section.dart';
 import 'package:catire_mobile/features/shared/section_header.dart';
 
-/// App home page
+/// App home page, displays staff picks and top ten articles.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -24,7 +24,8 @@ class HomePage extends StatelessWidget {
 
             const SectionTitle(title: "STAFF PICKS"),
             HorizontalArticleCarousel(articles: selectedArticles),
-            const SizedBox(height: 16), // ImageCard has margin bottom 12
+            // ImageCard has margin bottom 12, SizedBox 16 to keep symmetry
+            const SizedBox(height: 16),
 
             const SectionTitle(title: "TOP ARTICLES"),
             TopTenArticlesSection(),

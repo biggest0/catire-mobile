@@ -4,7 +4,7 @@ import '../../core/models/image_model.dart';
 import '../image/image_card.dart';
 import 'package:catire_mobile/data/cat_image_item.dart';
 
-/// Image page for cat facts and cat pictures
+/// Image page, for cat facts and cat pictures.
 class CatsPage extends StatelessWidget {
   static final List<ImageItem> images = catImages;
 
@@ -15,6 +15,7 @@ class CatsPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: images.isEmpty
+          // No images display (eventually, when images are fetched from API)
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -32,6 +33,8 @@ class CatsPage extends StatelessWidget {
                 ],
               ),
             )
+
+          // Images
           : ListView.separated(
               itemCount: images.length,
               separatorBuilder: (context, index) => const SizedBox(height: 8),

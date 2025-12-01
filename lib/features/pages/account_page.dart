@@ -1,11 +1,12 @@
-import 'package:catire_mobile/features/account/account_history_section.dart';
-import 'package:catire_mobile/features/account/account_info_section.dart';
-import 'package:catire_mobile/features/account/profile_picture.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import '../../core/services/database_service.dart';
+import 'package:catire_mobile/features/account/account_history_section.dart';
+import 'package:catire_mobile/features/account/account_info_section.dart';
+import 'package:catire_mobile/features/account/profile_picture.dart';
 
+/// Account page, user profile and article read history.
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
 
@@ -19,6 +20,7 @@ class AccountPageState extends State<AccountPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
 
+  // Hardcoded profile picture for now, need to implement uploading and API storage in future
   final String imagePath = 'assets/images/profile_pictures/cat_albert.jpg';
 
   List<ArticleInfo> _readArticles = [];
@@ -38,7 +40,7 @@ class AccountPageState extends State<AccountPage> {
     super.dispose();
   }
 
-  /// Load user data from database
+  /// Load user data from database.
   Future<void> _loadUserData() async {
     try {
       final user = await _userDb.getUser();
@@ -57,7 +59,7 @@ class AccountPageState extends State<AccountPage> {
     }
   }
 
-  /// Save user data to database
+  /// Save user data to database.
   Future<void> _saveUserData() async {
     try {
       await _userDb.updateUser(_nameController.text, _bioController.text);
@@ -78,7 +80,7 @@ class AccountPageState extends State<AccountPage> {
     }
   }
 
-  /// Read articles from database
+  /// Read articles from database.
   Future<void> _loadReadArticles() async {
     try {
       final result = await _userDb.getReadArticles(null);

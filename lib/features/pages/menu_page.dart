@@ -6,12 +6,13 @@ import 'package:catire_mobile/features/pages/about_page.dart';
 import 'package:catire_mobile/features/pages/contact_page.dart';
 import 'package:catire_mobile/features/pages/disclaimer_page.dart';
 
+/// Menu page, route to about, disclaimer, and contact pages.
 class MenuPage extends StatelessWidget {
   final Function(String, Widget)? onNavigate;
 
   const MenuPage({super.key, this.onNavigate});
 
-  // url_launcher package to open up social medial links in app browser
+  /// url_launcher package to open up social medial links in app browser.
   Future<void> _launchUrl(String url) async {
     try {
       final uri = Uri.parse(url);
@@ -31,6 +32,7 @@ class MenuPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // About
           ListTile(
             title: const Text(
               'About',
@@ -42,6 +44,7 @@ class MenuPage extends StatelessWidget {
 
           const SizedBox(height: 8),
 
+          // Disclaimer
           ListTile(
             title: const Text(
               'Disclaimer',
@@ -53,6 +56,7 @@ class MenuPage extends StatelessWidget {
 
           const SizedBox(height: 8),
 
+          // Contact
           ListTile(
             title: const Text(
               'Contact',
@@ -64,6 +68,7 @@ class MenuPage extends StatelessWidget {
 
           const SizedBox(height: 32),
 
+          // Social media icons
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
