@@ -119,7 +119,7 @@ class ArticleSummary extends StatelessWidget {
 
 /// Displays the footer of the article card with category and views.
 ///
-/// The category is shown on the left as a colored box
+/// The category is shown on the left as a colored box.
 /// The Views is shown on the right as a grey text with an icon.
 class ArticleFooter extends StatelessWidget {
   final String category;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Loading spinner widget for initial loading state
+/// Loading spinner for initial loading state.
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});
 

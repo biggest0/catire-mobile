@@ -4,7 +4,7 @@ import '../../core/models/article_model.dart';
 import '../../core/services/database_service.dart';
 import 'article_detail_screen.dart';
 
-/// A horizontal swipable carousel of article cards
+/// A horizontal swipable carousel of article cards.
 class HorizontalArticleCarousel extends StatelessWidget {
   final List<ArticleInfo> articles;
   final double height;
@@ -46,7 +46,7 @@ class HorizontalArticleCarousel extends StatelessWidget {
   }
 }
 
-/// Individual article card for horizontal scrolling
+/// Individual article card for horizontal scrolling.
 class _HorizontalArticleCard extends StatelessWidget {
   final ArticleInfo article;
   final bool isFirst;

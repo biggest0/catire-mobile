@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Display error message and retry button
+/// Display error message and retry button.
 class ErrorView extends StatelessWidget {
   final String error;
   final VoidCallback onRetry;

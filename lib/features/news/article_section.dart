@@ -28,21 +28,22 @@ class ArticleListSection extends StatefulWidget {
 }
 
 class _ArticleListSectionState extends State<ArticleListSection> {
-  List<ArticleInfo> _articles = []; // Currently loaded list of articles
+  List<ArticleInfo> _articles = [];
   bool _isLoading = false;
   bool _hasMore = true;
   int _currentPage = 1;
   String? errorMessage;
   final int _itemsPerPage = 10;
 
-  final ScrollController _scrollController =
-      ScrollController(); // Listen to scroll position
+  // Listen to scroll position
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
     _loadArticles();
-    _scrollController.addListener(_onScroll); // Set up scroll listener
+    // Set up scroll listener
+    _scrollController.addListener(_onScroll);
   }
 
   @override
@@ -63,7 +64,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
     }
   }
 
-  /// Load articles for current page number
+  /// Load articles for current page number.
   Future<void> _loadArticles() async {
     if (_isLoading || !_hasMore) return;
 
@@ -110,9 +111,8 @@ class _ArticleListSectionState extends State<ArticleListSection> {
       setState(() {
         _articles.addAll(newArticles);
         _currentPage++;
-        _hasMore =
-            newArticles.length ==
-            _itemsPerPage; // If length == 10, there are more pages to load
+        // Check if more articles to load
+        _hasMore = newArticles.length == _itemsPerPage;
         _isLoading = false;
       });
 
@@ -130,7 +130,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
     }
   }
 
-  /// When near bottom, load more articles
+  /// When near bottom, load more articles.
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
@@ -138,7 +138,7 @@ class _ArticleListSectionState extends State<ArticleListSection> {
     }
   }
 
-  /// Reset state and load first 10 articles
+  /// Reset state and load first 10 articles.
   Future<void> _refresh() async {
     setState(() {
       _articles = [];

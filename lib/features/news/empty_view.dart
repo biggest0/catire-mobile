@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Displays a message when no articles are found
+/// Displays a message when no articles are found.
 class EmptyView extends StatelessWidget {
   const EmptyView({super.key});
 
