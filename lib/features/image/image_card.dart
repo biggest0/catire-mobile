@@ -44,7 +44,7 @@ class ImageCard extends StatelessWidget {
                 width: double.infinity,
                 height: 220,
                 fit: BoxFit.cover,
-                // Call back to handle when image fails to load
+                // In case image fails, display something
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     width: double.infinity,

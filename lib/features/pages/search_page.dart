@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../news/article_section.dart';
 
+/// Search page, display a search bar and a list of articles.
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
@@ -21,6 +22,7 @@ class SearchPageState extends State<SearchPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          // Search form
           TextField(
             decoration: InputDecoration(
               labelText: "Search",
@@ -42,6 +44,7 @@ class SearchPageState extends State<SearchPage> {
             },
           ),
 
+          // Articles
           Expanded(
             child: ArticleListSection(
               search: search,

@@ -23,7 +23,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
     _fetchArticle();
   }
 
-  /// Fetch article details from API
+  /// Fetch article details from API.
   Future<void> _fetchArticle() async {
     final result = await getArticleDetail(widget.articleId);
     setState(() {

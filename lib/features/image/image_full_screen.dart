@@ -15,7 +15,6 @@ class ImageFullScreenPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.grey),
-        elevation: 0,
       ),
       body: Column(
         children: [
@@ -24,6 +23,7 @@ class ImageFullScreenPage extends StatelessWidget {
             child: Image.asset(
               imageItem.imagePath,
               fit: BoxFit.contain,
+              // In case broken image was clicked, should display something
               errorBuilder: (context, error, stackTrace) {
                 return Center(
                   child: Column(

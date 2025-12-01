@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+/// Text section with optional title.
 Widget buildTextSection({String? title, required String content}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16.0),
     child: Column(
       children: [
-        // spread operator lets you put multiple widgets in a list based on a condition
+        // Display title if provided
         if (title != null) ...[
           Text(
             title,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Main app bar of the app.
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function(int) onTap;
 
@@ -8,6 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.transparent,
       title: const Text("CATIRE TIME"),
       centerTitle: true,
       elevation: 0,

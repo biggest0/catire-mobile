@@ -40,6 +40,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   sqflite: ^2.3.0
   path: ^1.8.3
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +75,6 @@ flutter:
     - assets/images/cat_pictures/cat_image_6.png
     - assets/images/cat_pictures/cat_image_7.png
     - assets/images/cat_pictures/cat_image_8.png
-    - assets/images/cat_pictures/cat_image_9.png
     - assets/images/cat_pictures/cat_image_10.png
     - assets/images/cat_pictures/cat_image_11.png
     - assets/images/cat_pictures/home_image.jpg

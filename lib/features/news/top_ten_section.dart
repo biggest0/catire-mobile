@@ -9,7 +9,7 @@ import 'empty_view.dart';
 import 'error_view.dart';
 import 'loading_view.dart';
 
-/// Section of top ten articles
+/// Section of top ten articles.
 class TopTenArticlesSection extends StatefulWidget {
   const TopTenArticlesSection({super.key});
 
@@ -28,6 +28,7 @@ class _TopTenArticlesSectionState extends State<TopTenArticlesSection> {
     _loadArticles();
   }
 
+  /// Load top ten articles
   Future<void> _loadArticles() async {
     setState(() {
       _isLoading = true;
@@ -75,7 +76,7 @@ class _TopTenArticlesSectionState extends State<TopTenArticlesSection> {
   }
 }
 
-/// List view of top ten articles
+/// List view of top ten articles.
 class _TopTenListView extends StatelessWidget {
   final List<ArticleInfo> articles;
 
@@ -97,7 +98,7 @@ class _TopTenListView extends StatelessWidget {
   }
 }
 
-/// Individual article item for top ten articles
+/// Individual article item for top ten articles.
 class _TopTenArticleItem extends StatelessWidget {
   final ArticleInfo article;
   final int rank;
@@ -113,9 +114,11 @@ class _TopTenArticleItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Badge
             _RankBadge(rank: rank),
             const SizedBox(width: 12),
 
+            // Article info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,6 +163,8 @@ class _TopTenArticleItem extends StatelessWidget {
                 ],
               ),
             ),
+
+            // Right icon
             Icon(Icons.chevron_right, color: Colors.grey[400]),
           ],
         ),
@@ -168,7 +173,7 @@ class _TopTenArticleItem extends StatelessWidget {
   }
 }
 
-/// Rank badge for each article
+/// Rank badge for each article.
 class _RankBadge extends StatelessWidget {
   final int rank;
 

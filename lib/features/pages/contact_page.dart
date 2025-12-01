@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Contact page, social media and email.
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
 
@@ -7,7 +8,7 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        width: double.infinity, // Take full width
+        width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -17,6 +18,7 @@ class ContactPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // Email
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
@@ -31,6 +33,7 @@ class ContactPage extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
+                  // Social media
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [

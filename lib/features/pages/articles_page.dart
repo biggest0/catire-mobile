@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../news/category_slider.dart';
 import 'package:catire_mobile/features/news/article_section.dart';
 
+/// Articles page, displays a category slider and the corresponding list of articles.
 class ArticlesPage extends StatefulWidget {
   const ArticlesPage({super.key});
 
@@ -19,6 +20,7 @@ class _ArticlesPageState extends State<ArticlesPage> {
     _selectedCategory = 'all';
   }
 
+  /// Call back to update selected category.
   void onCategoryChanged(String? category) {
     print('Selected category: $category');
     setState(() {
@@ -30,10 +32,13 @@ class _ArticlesPageState extends State<ArticlesPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // Category slider
         CategorySlider(
           selectedCategory: _selectedCategory,
           onCategoryChanged: onCategoryChanged,
         ),
+
+        // Articles
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

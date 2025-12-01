@@ -1,11 +1,11 @@
-import 'package:catire_mobile/core/utils/tap_helper.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/models/article_model.dart';
 import 'article_card.dart';
 import 'package:catire_mobile/features/news/empty_view.dart';
+import 'package:catire_mobile/core/utils/tap_helper.dart';
 
-/// A section widget that displays a list of articles read by the user.
+/// Section to display a list of articles read by the user.
 class ArticleHistoryListSection extends StatelessWidget {
   final List<ArticleInfo> articles;
 

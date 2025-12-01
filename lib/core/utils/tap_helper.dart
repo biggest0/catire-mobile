@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../features/news/article_detail_screen.dart';
 import '../services/database_service.dart';
 
-/// Save article to database and navigate to article detail screen when tapped
+/// Save article to database and navigate to article detail screen when tapped.
 Future<void> handleTap(BuildContext context, ArticleInfo article) async {
   final userDb = DatabaseHelper();
   await userDb.saveReadArticle(article);

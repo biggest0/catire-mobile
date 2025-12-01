@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Get color for rank badge
+/// Get color for rank badge.
 Color getRankColor(int rank) {
   switch (rank) {
     case 1:
@@ -14,7 +14,7 @@ Color getRankColor(int rank) {
   }
 }
 
-/// Get category text color
+/// Get category text color.
 Color getTextColor(String category) {
   switch (category) {
     case 'world':
@@ -36,7 +36,7 @@ Color getTextColor(String category) {
   }
 }
 
-/// Get category box color
+/// Get category box color.
 Color getBoxColor(String category) {
   switch (category) {
     case 'world':

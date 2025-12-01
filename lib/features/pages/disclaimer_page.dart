@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../shared/section.dart';
 
+/// Disclaimer page, disclaimer and legal information.
 class DisclaimerPage extends StatelessWidget {
   const DisclaimerPage({super.key});
 

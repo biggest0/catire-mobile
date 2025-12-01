@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:catire_mobile/features/shared/section.dart';
 
+/// About page, information and mission.
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 

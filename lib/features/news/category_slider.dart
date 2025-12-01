@@ -62,6 +62,7 @@ class CategorySlider extends StatelessWidget {
     );
   }
 
+  /// News Category to be displayed on the slider.
   Widget _buildCategoryChip({
     required String label,
     required bool isSelected,
