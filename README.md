@@ -1,25 +1,25 @@
 # Catire Mobile App
 
-A Flutter-based mobile news application with a cat-themed twist! Browse articles, discover cat facts, and manage your reading history—all in one app.
+A Flutter-based mobile news application with a cat-themed! Browse articles, cat facts, and cat pics.
 
 ---
 
 ## Features
 
 ### News & Articles
-- **Home Feed** — Curated staff picks and top 10 trending articles
+- **Home Feed** — Staff picks and top 10 trending articles
 - **Article Browser** — Browse articles with category filtering (World, Lifestyle, Science, Technology, Sports, etc.)
 - **Article Search** — Full-text search across all articles
 - **Infinite Scroll** — Pagination with automatic loading
 - **Article Details** — Full article view with paragraphs
 
 ### Cat Facts Gallery
-- Browse adorable cat images with fun facts
+- Browse ai generated cat images with fun facts
 - Tap to view images in full-screen mode
 - Captions and detailed descriptions
 
 ### User Account
-- Customizable profile with name and bio
+- Customizable name and bio
 - Profile picture display
 - Reading history tracking
 - Clear history functionality
@@ -91,11 +91,21 @@ lib/
         └── section.dart
 ```
 
+```
+assets/
+└── images/
+    ├── cat_pictures/          # Cat fact images
+    │   ├── cat_image_1.png
+    │   ├── ...
+    │   └── home_image.jpg
+    └── profile_pictures/      # User profile images
+        └── cat_albert.jpg
+```
 ---
 
 ## Database Schema
 
-The app uses SQLite for local data persistence:
+The app uses SQLite for local data storage:
 
 ### Users Table
 | Column | Type | Description |
@@ -119,7 +129,7 @@ The app uses SQLite for local data persistence:
 
 ## API Integration
 
-The app connects to a REST API for article data:
+The app connects to an API for article data:
 
 ### Endpoints
 
@@ -154,20 +164,3 @@ The app uses a bottom navigation bar with 5 main sections:
 | 🖼️ | Cats | `CatsPage` | Cat facts image gallery |
 | 👤 | Account | `AccountPage` | User profile & history |
 | ☰ | More | `MenuPage` | About, Contact, Disclaimer |
-
----
-
-## Assets
-
-The app includes image assets:
-
-```
-assets/
-└── images/
-    ├── cat_pictures/          # Cat fact images
-    │   ├── cat_image_1.png
-    │   ├── ...
-    │   └── home_image.jpg
-    └── profile_pictures/      # User profile images
-        └── cat_albert.jpg
-```
