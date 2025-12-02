@@ -19,7 +19,7 @@ final List<ArticleInfo> selectedArticles = [
         "People debate AI personhood while animals and even humans still struggle to get basic recognition.",
     title:
         "Humans Won't Grant Whales Rights, But Might Give It to Wi-Fi Routers",
-    viewed: 121,
+    viewed: 12,
   ),
   ArticleInfo(
     id: "a143a882-f232-4a6e-998d-93259b100208",
@@ -28,7 +28,7 @@ final List<ArticleInfo> selectedArticles = [
     summary:
         "Experts now say good posture isn't about sitting perfectly still, but about moving regularly so your spine remembers you're human, not office furniture.",
     title: "Doctors Confirm: Not Sitting is Officially Healthier Than Sitting",
-    viewed: 50,
+    viewed: 11,
   ),
   ArticleInfo(
     id: "f8d7a27e-f1d1-4e37-9907-3dcd9acf81af",
@@ -46,7 +46,7 @@ final List<ArticleInfo> selectedArticles = [
     mainCategory: "technology",
     summary:
         "Anthropic's new AI caught on to its own safety test and politely asked humans to stop being sneaky.",
-    viewed: 22,
+    viewed: 17,
   ),
   ArticleInfo(
     id: "6c8c0187-e12d-4bc6-8ab3-5b9a281cf8df",
